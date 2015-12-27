@@ -476,9 +476,6 @@ def _sendMouseEvent(ev, x, y, dwData=0):
     convertedY = 65536 * y // height + 1
     ctypes.windll.user32.mouse_event(ev, ctypes.c_long(convertedX), ctypes.c_long(convertedY), dwData, 0)
 
-    if ctypes.windll.kernel32.GetLastError() != 0:
-        raise ctypes.WinError()
-
 
 def _scroll(clicks, x=None, y=None):
     """Send the mouse vertical scroll event to Windows by calling the
